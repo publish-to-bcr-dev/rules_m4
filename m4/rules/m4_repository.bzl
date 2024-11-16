@@ -16,8 +16,8 @@
 
 """Definition of the `m4_repository` repository rule."""
 
-load("//m4/internal:versions.bzl", "VERSION_URLS")
 load("//m4/internal:gnulib/gnulib.bzl", "gnulib_overlay")
+load("//m4/internal:versions.bzl", "VERSION_URLS")
 
 _M4_BUILD = """
 cc_library(
