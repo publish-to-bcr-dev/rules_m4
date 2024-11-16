@@ -36,13 +36,28 @@ cc_library(
         "//gnulib",
     ],
 )
+
+config_setting(
+    name = "cc_compiler_msvc",
+    flag_values = {{"@bazel_tools//tools/cpp:compiler": "msvc-cl"}},
+    visibility = ["//:__subpackages__"],
+)
 """
 
 _M4_BIN_BUILD = """
+M4_LINKOPTS = select({
+    "//:cc_compiler_msvc": [
+        # LNK4001: no object files specified; libraries used
+        "/IGNORE:4001",
+    ],
+    "//conditions:default": [],
+})
+
 cc_binary(
     name = "m4",
     visibility = ["//visibility:public"],
     deps = ["//:m4_lib"],
+    linkopts = M4_LINKOPTS,
 )
 """
 

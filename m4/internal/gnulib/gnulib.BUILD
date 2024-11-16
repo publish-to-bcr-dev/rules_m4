@@ -197,7 +197,7 @@ _GNULIB_WINDOWS_SRCS = [
 ]
 
 _COPTS = select({
-    "@bazel_tools//src/conditions:windows_msvc": [
+    "//:cc_compiler_msvc": [
         # By default, MSVC doesn't fail or even warn when an undefined function
         # is called. This check is vital when building gnulib because of how it
         # shims in its own malloc functions.
@@ -205,11 +205,18 @@ _COPTS = select({
         # C4013: 'function' undefined; assuming extern returning int
         "/we4013",
 
-        # Silence this style lint because gnulib freely violates it, and chances
-        # of the GNU developers ever caring about MSVC style guidelines are low.
+        # Silence some style lints because gnulib freely violates them, and
+        # chances of the GNU developers ever caring about MSVC style guidelines
+        # are low.
         #
+        # C4090: different 'const' qualifiers
         # C4116: unnamed type definition in parentheses
+        # C4311: pointer truncation to 'int' / 'unsigned long'
+        # C4312: conversion from 'int' / 'unsigned long' to pointer
+        "/wd4090",
         "/wd4116",
+        "/wd4311",
+        "/wd4312",
     ],
     "//conditions:default": [],
 })

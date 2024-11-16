@@ -180,6 +180,11 @@ static const char * _replaced_get_charset_aliases (void)
         "int flags = dp->flags;": "int flags = dp->flags; (void)flags;",
     })
 
+    # Silence warning about assigning `void (*)()` to `void (*)(void)`.
+    ctx.template("gnulib/lib/clean-temp.c", "gnulib/lib/clean-temp.c", substitutions = {
+        "static void\ncleanup ()\n{": "static void\ncleanup (void)\n{",
+    })
+
 _WINDOWS_STDLIB_SHIMS = [
     "alloca",
     "errno",
