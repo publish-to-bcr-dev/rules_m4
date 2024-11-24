@@ -1,4 +1,4 @@
 {
-  "url": "https://github.com/{OWNER}/{REPO}/releases/download/v{VERSION}/{REPO}-v{VERSION}.tar.xz",
+  "url": "https://github.com/jmillikin/rules_m4/releases/download/v0.2.4/rules_m4-v0.2.4.tar.xz",
   "integrity": ""
 }
