@@ -2,13 +2,13 @@
   "homepage": "https://github.com/jmillikin/rules_m4",
   "maintainers": [
     {
-      "name": "John Millikin",
-      "email": "john@john-millikin.com",
-      "github": "jmillikin"
+      "name": "Derek Cormier",
+      "email": "derek@aspect.dev",
+      "github": "kormide"
     }
   ],
   "repository": [
-    "github:jmillikin/rules_m4"
+    "github:publish-to-bcr-dev/rules_m4"
   ],
   "versions": [],
   "yanked_versions": {}
